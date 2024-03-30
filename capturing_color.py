@@ -5,7 +5,10 @@ import numpy as np
 
 # Read in the image
 # image = mpimg.imread('test02.jpg')
-cap = cv2.VideoCapture('test02.mp4')
+# cap = cv2.VideoCapture('./test_videos/test02.mp4')
+cap = cv2.VideoCapture('./test_videos/solidWhiteRight.mp4')
+# cap = cv2.VideoCapture('./test_videos/solidYellowLeft.mp4')
+# cap = cv2.VideoCapture('./test_videos/challenge.mp4')
 # image = cv2.imread('test.jpg')
 
 while True:
@@ -15,7 +18,7 @@ while True:
         break
 
 
-    image = cv2.resize(image, (0, 0), fx = 0.6, fy = 0.6)
+    image = cv2.resize(image, (0, 0), fx = 0.8, fy = 0.8)
     # Grab the x and y sizes and make two copies of the image
     # With one copy we'll extract only the pixels that meet our selection,
     # then we'll paint those pixels red in the original image to see our selection 
@@ -26,9 +29,9 @@ while True:
     line_image = np.copy(image)
 
     # Define our color criteria
-    red_threshold = 180
-    green_threshold = 170
-    blue_threshold = 90
+    blue_threshold = 0
+    green_threshold = 150
+    red_threshold = 210
     rgb_threshold = [blue_threshold, green_threshold, red_threshold]
 
     # Define a triangle region of interest (Note: if you run this code, 
@@ -36,8 +39,8 @@ while True:
     # you'll find these are not sensible values!!
     # But you'll get a chance to play with them soon in a quiz ;)
     left_bottom = [xsize*150/1915, ysize*1000/985]
-    right_bottom = [xsize*1800/1915, ysize*1000/985]
-    apex = [xsize*880/1915, ysize*570/985]
+    right_bottom = [xsize*1900/1915, ysize*1000/985]
+    apex = [xsize*950/1915, ysize*550/985]
 
     fit_left = np.polyfit((left_bottom[0], apex[0]), (left_bottom[1], apex[1]), 1)
     fit_right = np.polyfit((right_bottom[0], apex[0]), (right_bottom[1], apex[1]), 1)

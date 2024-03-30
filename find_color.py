@@ -16,7 +16,7 @@ cv2.createTrackbar('Green Max', 'TrackBar', 255, 255, empty)
 cv2.createTrackbar('Red Min', 'TrackBar', 0, 255, empty)
 cv2.createTrackbar('Red Max', 'TrackBar', 255, 255, empty)
 
-img = cv2.imread('test02.jpg')
+img = cv2.imread('./test_images/challange02.jpg')
 img = cv2.resize(img, (0, 0), fx = 0.4, fy = 0.4)
 # hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
