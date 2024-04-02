@@ -209,7 +209,6 @@ while True:
 [challenge](https://youtu.be/YrKArkoXF10)  
 [bonus](https://youtu.be/-QsYOkL1XoM)  
 
-https://youtu.be/dyHaMPcWi0g
 # Things to improve
 - [ ] connect all the line together to form a bigger and more visable line  
 - [ ] intruduce Gauss blur, canny edge and hough transform to enhance the robustness of the program  
