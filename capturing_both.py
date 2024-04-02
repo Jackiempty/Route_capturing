@@ -62,8 +62,8 @@ while True:
     # Make a blank the same size as our image to draw on
     rho = 3 # distance resolution in pixels of the Hough grid
     theta = np.pi/180 # angular resolution in radians of the Hough grid
-    threshold = 3     # minimum number of votes (intersections in Hough grid cell)
-    min_line_length = 30 #minimum number of pixels making up a line
+    threshold = 1     # minimum number of votes (intersections in Hough grid cell)
+    min_line_length = 20 #minimum number of pixels making up a line
     max_line_gap = 20    # maximum gap in pixels between connectable line segments
     line_image = np.copy(image)*0 # creating a blank to draw lines on
 
@@ -75,14 +75,14 @@ while True:
     # Iterate over the output "lines" and draw lines on a blank image
     for line in lines:
         for x1,y1,x2,y2 in line:
-            cv2.line(line_image,(x1,y1),(x2,y2),(0,0,225),8)
+            cv2.line(line_image,(x1,y1),(x2,y2),(0,0,255),10)
 
     # Create a "color" binary image to combine with line image
     color_edges = np.dstack((edges, edges, edges)) 
 
     # Draw the lines on the edge image
     lines_edges = cv2.addWeighted(image, 0.8, line_image, 1, 0) 
-    cv2.imshow("result", lines_edges)
+    cv2.imshow("result", color_select)
 
     if cv2.waitKey(1) == ord('q'):
         break             # 按下 q 鍵停止
