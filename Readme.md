@@ -204,6 +204,11 @@ while True:
 
 ```
 # Link
+[solidWhiteRight](https://youtu.be/fEzKZc-sFc4)
+[solidYellowLeft](https://youtu.be/xJ65LmKLL3A)
+[challenge](https://youtu.be/YrKArkoXF10)
+[bonus](https://youtu.be/-QsYOkL1XoM)
+
 https://youtu.be/dyHaMPcWi0g
 # Things to improve
 - [ ] connect all the line together to form a bigger and more visable line  
