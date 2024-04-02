@@ -11,16 +11,16 @@ So how exactly to recognize the lane shape just by detecting color?
 
 ## Find color
 
-The first step is to find the specific color of the marking on the road. To approach that, I create an simple tool with opencv to specify the color of the marking.
+The first step is to find the specific color of the marking on the road. To approach that, I create an simple tool with opencv to specify the color of the marking.  
 
-**before:**
-![image](https://hackmd.io/_uploads/ryZJSAIJA.png)
+**before:**  
+![image](https://hackmd.io/_uploads/ryZJSAIJA.png)  
 
 
-**after:**
-![image](https://hackmd.io/_uploads/B1ak408yC.png)
+**after:**  
+![image](https://hackmd.io/_uploads/B1ak408yC.png)  
 
-As you can see, by dragging the adjustment bar, it becomes possible to specify the color just for the marking on the road, so that we can capture the route.
+As you can see, by dragging the adjustment bar, it becomes possible to specify the color just for the marking on the road, so that we can capture the route.  
 
 ```python
 import cv2
@@ -68,13 +68,13 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break             # 按下 q 鍵停止
 ```
-> This is the program used to specify the demanding color
+> This is the program used to specify the demanding color  
 
-## Region Mask
+## Region Mask  
 
 After finding the wanted color, there's another problem which is the surrounding of the road that may be noisy when we want only the color of the marking on the road to be specify rather that the whole image including the sky or other cars.  
 
-So what we do is to make a region mask to cover only the region that we want to process.
+So what we do is to make a region mask to cover only the region that we want to process.  
 
 ![image](https://hackmd.io/_uploads/SJCyuCIkC.png)  
 
@@ -128,12 +128,12 @@ By providing three coordinate of the vertex of the triangle, we get to draw a sh
 
 ## Result
 
-By combining the two processes together, we get to aquire a program that can specify the color of the marking on the road just inside the region where the marking exists. 
+By combining the two processes together, we get to aquire a program that can specify the color of the marking on the road just inside the region where the marking exists.  
 
 ![image](https://hackmd.io/_uploads/ByAW90IJ0.png)
 
 
-**code**
+**code**  
 ```python
 import cv2
 import matplotlib.pyplot as plt
@@ -203,13 +203,13 @@ while True:
         break             # 按下 q 鍵停止
 
 ```
-# Link
-[solidWhiteRight](https://youtu.be/fEzKZc-sFc4)
-[solidYellowLeft](https://youtu.be/xJ65LmKLL3A)
-[challenge](https://youtu.be/YrKArkoXF10)
-[bonus](https://youtu.be/-QsYOkL1XoM)
+# Link  
+[solidWhiteRight](https://youtu.be/fEzKZc-sFc4)  
+[solidYellowLeft](https://youtu.be/xJ65LmKLL3A)  
+[challenge](https://youtu.be/YrKArkoXF10)  
+[bonus](https://youtu.be/-QsYOkL1XoM)  
 
 https://youtu.be/dyHaMPcWi0g
 # Things to improve
 - [ ] connect all the line together to form a bigger and more visable line  
-- [ ] intruduce Gauss blur, canny edge and hough transform to enhance the robustness of the program
+- [ ] intruduce Gauss blur, canny edge and hough transform to enhance the robustness of the program  
