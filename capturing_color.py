@@ -5,10 +5,10 @@ import numpy as np
 
 # Read in the image
 # image = mpimg.imread('test02.jpg')
-# cap = cv2.VideoCapture('./test_videos/test02.mp4')
 # cap = cv2.VideoCapture('./test_videos/solidWhiteRight.mp4')
 # cap = cv2.VideoCapture('./test_videos/solidYellowLeft.mp4')
-cap = cv2.VideoCapture('./test_videos/challenge.mp4')
+# cap = cv2.VideoCapture('./test_videos/challenge.mp4')
+cap = cv2.VideoCapture('./test_videos/bonus.mp4')
 # image = cv2.imread('test.jpg')
 
 while True:
