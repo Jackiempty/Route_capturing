@@ -17,7 +17,25 @@ while True:
         break
 
     image = cv2.resize(image, (0, 0), fx = 0.8, fy = 0.8)
-    gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+
+    #-----------------------------------------------------------------------------
+    # Define our color criteria
+    blue_threshold = 0
+    green_threshold = 150
+    red_threshold = 210
+    rgb_threshold = [blue_threshold, green_threshold, red_threshold]
+
+    # Mask pixels below the threshold
+    color_thresholds = (image[:,:,0] < rgb_threshold[0]) | \
+                        (image[:,:,1] < rgb_threshold[1]) | \
+                        (image[:,:,2] < rgb_threshold[2])
+
+    color_select= np.copy(image)
+    color_select[color_thresholds] = [0,0,0]
+
+    #-----------------------------------------------------------------------------
+
+    gray = cv2.cvtColor(color_select,cv2.COLOR_BGR2GRAY)
 
     # Define a kernel size and apply Gaussian smoothing
     kernel_size = 7
@@ -45,7 +63,7 @@ while True:
     rho = 3 # distance resolution in pixels of the Hough grid
     theta = np.pi/180 # angular resolution in radians of the Hough grid
     threshold = 3     # minimum number of votes (intersections in Hough grid cell)
-    min_line_length = 20 #minimum number of pixels making up a line
+    min_line_length = 30 #minimum number of pixels making up a line
     max_line_gap = 20    # maximum gap in pixels between connectable line segments
     line_image = np.copy(image)*0 # creating a blank to draw lines on
 
